@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<!-- Msg -->
+<div class="pure-g">
+    <div class="pure-u-1-3 pure-u-md-1-3"></div>
+    <div class="pure-u-1-3 pure-u-md-1-3 center">
+        {% if msg %}
+        <span class="msg">{{ msg }}</span>
+        {% endif %}
+    </div>
+    <div class="pure-u-1-3 pure-u-md-1-3"></div>
+</div>
+<!-- Login -->
+<div class="pure-g">
+    <div class="pure-u-1-3 pure-u-md-1-3"></div>
+    <div class="pure-u-1-3 pure-u-md-1-3 center">
+        {% if name %}
+        {{ name }} - {{ qq }} -
+        <a href="/logout" class="pure-button pure-button-primary">Logout</a>
+        {% else %}
+        <h2>Login</h2>
+        <form class="pure-form" action="/login" method="POST">
+            <input type="text" name="username" placeholder="Nickname" />
+            <input type="text" name="qq" placeholder="QQ号" />
+            <button type="submit" class="pure-button pure-button-primary">Login/Register</button>
+        </form>
+        {% endif %}
+    </div>
+    <div class="pure-u-1-3 pure-u-md-1-3"></div>
+</div>
+<!-- Download/Submit -->
+{% if name %}
+<hr>
+<div class="pure-g">
+    <div class="pure-u-1-3 pure-u-md-1-3"></div>
+    <div class="pure-u-1-3 pure-u-md-1-3 center">
+        <h3>Get Attachment</h3>
+        <p>原图：<a href="http://chamd5-puzzle.oss-cn-hangzhou.aliyuncs.com/aidpuzzle.png">aidpuzzle.png</a></p>
+        <p id="url">点击获取附件链接将进入计时</p>
+        <button id="getAttachment" class="pure-button pure-button-primary">Get</button>
+        <hr>
+        <h3>Submit Secret (Limit: 10 per minute)</h3>
+        <form class="pure-form" action="/submit" method="POST">
+            <input type="text" name="secret" placeholder="secret{xxxx}" />
+            <button type="submit" class="pure-button pure-button-primary">Submit</button>
+        </form>
+    </div>
+    <div class="pure-u-1-3 pure-u-md-1-3"></div>
+</div>
+{% endif %}
+<script src="/static/js/jquery.min.js"></script>
+<script>
+    $("#getAttachment").bind("click", (e) => {
+        $.ajax({
+            "url": "/geturl",
+            "type": "get",
+            success: function (data) {
+                console.log(data)
+                if (data.status == 0) {
+                    $("#url").html(`<a
+                        href="${data.url}">Download</a>`)
+                } else {
+                    $("#url").text(data.msg)
+                }
+            }
+        });
+    })
+</script>
+{% endblock %}

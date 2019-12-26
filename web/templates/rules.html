@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="pure-g">
+    <div class="pure-u-1-3 pure-u-md-1-3"></div>
+    <div class="pure-u-1-3 pure-u-md-1-3">
+        <h1>Rules</h1>
+        <h2 id="toc_0">比赛地址</h2>
+        <p><a href="http://aidpuzzle.venomsec.org">http://aidpuzzle.venomsec.org</a></p>
+        <h2 id="toc_1">比赛时间</h2>
+        <p>2019-12-25 08:00:00 至 2019-12-26 08:00:00</p>
+        <h2 id="toc_2">比赛说明</h2>
+        <ol>
+            <li>选手登录平台-填写ID、QQ号(<strong>*QQ号为入群领取红包或奖品</strong>)</li>
+            <li>下载无干扰无secret原图</li>
+            <li>点击获取附件地址(并开始计时)-下载一系列切成小碎块图片的压缩包</li>
+            <li>根据不含flag的图片为依据去拼好含有secret的小碎块,secret{xxxx}</li>
+            <li>提交<code>secret{xxxx}</code>(结束计时)将得到flag{yyyyy},(yyyyy为入群口令)</li>
+        </ol>
+        <p><strong>Venom俱乐部群号:1019606194</strong></p>
+        <p>比赛分为资格赛和挑战赛，规则如下<br />
+            资格赛前5名需要提交完整的WP至<a href="mailto:line@venomsec.org">line@venomsec.org</a>，提交格式如下<br />
+            邮件标题：<br />
+            【Venom&#39;s AID Puzzle】-QQ号-WP<br />
+            邮件正文：<br />
+            1.下载到的附件<br />
+            2.Writeup文档，pdf格式<br />
+            3.解题脚本，zip压缩<br />
+            4.拼出来的图</p>
+        <h2 id="toc_3">资格赛排名规则</h2>
+        <p>平台会计算从下载开始到提交flag所用的时间。以该时间为第一评判依据，flag提交先后顺序为第二评判依据（平台未做二次排序处理。。。）</p>
+        <p>比赛提供三次提交flag的机会，每次下载到的附件及flag均不相同，方便参加挑战的选手使用更优解的算法解题。平台将会取三次中用时最少的一次作为最终评判标准<br />
+            为防止异议。</p>
+        <h3 id="toc_4">举个例子说明一下评判规则</h3>
+        <p>张三在08:00:00下载了附件，在08:30:12提交了flag，所用时间为1812秒。<br />
+            李四在12:00:00下载了附件，在12:30:12提交了flag，所用时间为1812秒。<br />
+            王五在16:00:00下载了附件，在16:10:00提交了flag，所用时间为900秒。<br />
+            王五用时最短，所以第一，张三和李四用时相同，但是张三最先提交flag，所以第二，李四则第三<br />
+            最终排名为，1. 王五 2. 张三 3. 李四</p>
+        <p><strong>挑战赛说明在入群后在群附件中可看到。</strong></p>
+        <h2 id="toc_5">比赛奖励</h2>
+        <h3 id="toc_6">资格赛</h3>
+        <ul>
+            <li>第一名 300元+TSRC圣诞礼品一份</li>
+            <li>第二名 200元+MTSRC圣诞礼品一份</li>
+            <li>第三名 100元+华为终端圣诞礼品一份</li>
+            <li>第四名 DSRC圣诞礼品一份</li>
+            <li>第五名 BSRC圣诞礼品一份</li>
+            <li>一血奖励 JSRC圣诞礼品一份</li>
+        </ul>
+        <h3 id="toc_7">挑战赛</h3>
+        <ul>
+            <li>一名 500元 + JSRC圣诞礼品一份</li>
+        </ul>
+        <h3 id="toc_8">重在参与奖</h3>
+        <p>比赛结束时我们会发放手气红包，之后会选取所有群成员(管理除外)进行抽奖，抽出来6个幸运儿并发放圣诞礼品。整个抽奖过程会直播并录像保证公平性</p>
+        <p>有任何疑问可以联系QQ: 285617421 或是在群里询问管理</p>
+
+    </div>
+    <div class="pure-u-1-3 pure-u-md-1-3"></div>
+</div>
+{% endblock %}
